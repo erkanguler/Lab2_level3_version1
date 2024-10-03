@@ -24,10 +24,12 @@ static class App
             {
             GoToCategory:
                 Console.Write("Enter a Category: "); // Set category name
-                if (String.IsNullOrEmpty(input = Console.ReadLine()))
+                input = Console.ReadLine()!.Trim();
+
+                if (String.IsNullOrEmpty(input))
                     continue;
 
-                categoryName = input!.Trim(); // End of 
+                categoryName = input; // End of 
 
                 if (IsTokenEqual(input!, "q"))
                 {
@@ -50,6 +52,7 @@ static class App
                             {
                                 Console.Write("\nEnter a Product Name: ");
                                 string? prodName = Console.ReadLine();
+                                prodName = prodName!.Trim();
 
                                 if (String.IsNullOrEmpty(prodName))
                                     continue;
@@ -71,11 +74,12 @@ static class App
             while (true) // Set product name
             {
                 Console.Write("Enter a Product Name: ");
+                input = Console.ReadLine()!.Trim();
 
-                if (String.IsNullOrEmpty(input = Console.ReadLine()))
+                if (String.IsNullOrEmpty(input))
                     continue;
 
-                productName = input!.Trim();
+                productName = input;
 
                 break;
             }
