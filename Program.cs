@@ -24,12 +24,12 @@ static class App
             {
             GoToCategory:
                 Console.Write("Enter a Category: "); // Set category name
-                input = Console.ReadLine()!.Trim();
+                input = Console.ReadLine();
 
-                if (String.IsNullOrEmpty(input))
+                if (String.IsNullOrWhiteSpace(input))
                     continue;
 
-                categoryName = input; // End of 
+                categoryName = input!.Trim(); // End of 
 
                 if (IsTokenEqual(input!, "q"))
                 {
@@ -39,8 +39,10 @@ static class App
                     {
                         PrintTextWithColor(APP_SUBMENU, ConsoleColor.Blue);
 
-                        if (String.IsNullOrEmpty(input = Console.ReadLine()))
+                        if (String.IsNullOrWhiteSpace(input = Console.ReadLine()))
                             continue;
+
+                        input = input!.Trim();
 
                         if (IsTokenEqual(input!, "q"))
                             Environment.Exit(0);
@@ -52,10 +54,11 @@ static class App
                             {
                                 Console.Write("\nEnter a Product Name: ");
                                 string? prodName = Console.ReadLine();
-                                prodName = prodName!.Trim();
 
-                                if (String.IsNullOrEmpty(prodName))
+                                if (String.IsNullOrWhiteSpace(prodName))
                                     continue;
+
+                                prodName = prodName!.Trim();
 
                                 if (productList.Contains(prodName!))
                                     productList.ColorPrintProducts(prodName!);
@@ -74,12 +77,12 @@ static class App
             while (true) // Set product name
             {
                 Console.Write("Enter a Product Name: ");
-                input = Console.ReadLine()!.Trim();
+                input = Console.ReadLine();
 
-                if (String.IsNullOrEmpty(input))
+                if (String.IsNullOrWhiteSpace(input))
                     continue;
 
-                productName = input;
+                productName = input!.Trim();
 
                 break;
             }
